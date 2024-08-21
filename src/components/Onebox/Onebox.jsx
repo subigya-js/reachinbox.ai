@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import OneboxHeader from "./OneboxHeader";
-import OneboxLanding from "./OneboxLanding";
+// import OneboxLanding from "./OneboxLanding";
 import Inbox from "./Inbox";
 
 const Onebox = () => {
@@ -11,7 +11,6 @@ const Onebox = () => {
 
       <div>
         <OneboxHeader />
-       
         <Inbox />
       </div>
     </div>

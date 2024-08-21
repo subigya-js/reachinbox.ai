@@ -24,7 +24,7 @@ const OneboxHeader = () => {
         </button>
         <div>
           <p className={`flex items-center ${textColor}`}>
-            {name}'s Workplace{" "}
+            {name ? name : "User"}'s Workplace{" "}
             <span className="mt-1 cursor-pointer">
               <FaAngleDown />
             </span>

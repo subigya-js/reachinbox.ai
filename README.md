@@ -1,4 +1,4 @@
-# **Inbox Web Application**
+# **React Email Application**
 
 ## **Overview**
 
@@ -6,16 +6,11 @@ This project is a functional inbox web application built using React. It include
 
 ## **Features**
 
-- **User Authentication**: Secure login functionality using Google OAuth.
-- **Dynamic Inbox**: Fetch and display emails dynamically using API integration.
-- **Light and Dark Mode**: Toggle between light and dark themes.
-- **Search Functionality**: Search through the inbox.
-- **Responsive Design**: Fully responsive UI.
-- **Keyboard Shortcuts**: 
-  - Press "D" to delete an email.
-  - Press "R" to reply to an email.
-- **Custom Text Editor**: Includes custom buttons like "SAVE" and "Variables".
-- **Reply Functionality**: Send replies directly from the inbox.
+- **Landing Page**: A welcoming page where users can navigate to the Onebox section.
+- **Onebox Section**: A detailed view with an email list, header, and sidebar.
+- **Email List**: Fetches and displays emails, supports search and filtering.
+- **Theme Toggle**: Switch between light and dark modes.
+- **Context API**: Manages user information, theme, and email count.
 
 ## **Project Structure**
 
@@ -44,20 +39,22 @@ src/
 
 1. **Clone the repository:**
 
-```bash
-   git clone https://github.com/yourusername/onebox.git
+   ```bash
+   git clone https://github.com/yourusername/reachinbox.ai.git
    ```
 
    ```
-   cd onebox
+   cd reachinbox.ai
    ```
 
 2. **Install dependencits:**
+
    ```bash
    npm install
    ```
 
-3. **Start the development server:**
+4. **Start the development server:**
+
    ```bash
    npm run start
    ```
@@ -70,11 +67,18 @@ src/
 
 ## **Technologies Used**
 
-- **React**: JavaScript library for building user interfaces.
-- **ContextAPI**: View your inbox and manage emails.
-- **DOM Purify**: Sanitizing HTML content
-- **React Router**: For client-side routing.
-- **React Icons**: Icons
-- **Axios**: Promise-based HTTP client for making API requests.
-- **@react-oauth/google**: For handling Google OAuth authentication.
-- **Tailwind CSS**: Utility-first CSS framework for styling.
+- **React**: A JavaScript library for building user interfaces.
+- **React Router**: A library for handling routing in React applications.
+- **Context API**: React's built-in method for managing global state.
+- **JavaScript (ES6+)**: Programming language used for writing application logic.
+- **CSS**: Styling language used for the application’s design.
+- **Axios**: A promise-based HTTP client for making API requests.
+- **React Icons**: A library for including various icons in the React application.
+
+## **Features**
+
+- **Landing Page**: A welcoming page where users can navigate to the Onebox section.
+- **Onebox Section**: A detailed view with an email list, header, and sidebar.
+- **Email List**: Fetches and displays emails, supports search and filtering.
+- **Theme Toggle**: Switch between light and dark modes.
+- **Context API**: Manages user information, theme, and email count.

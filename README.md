@@ -9,13 +9,6 @@ This project is a functional inbox web application built using React. It include
 - **User Authentication**: Secure login functionality using Google OAuth.
 - **Dynamic Inbox**: Fetch and display emails dynamically using API integration.
 - **Light and Dark Mode**: Toggle between light and dark themes.
-- **Search Functionality**: Search through the inbox.
-- **Responsive Design**: Fully responsive UI.
-- **Keyboard Shortcuts**: 
-  - Press "D" to delete an email.
-  - Press "R" to reply to an email.
-- **Custom Text Editor**: Includes custom buttons like "SAVE" and "Variables".
-- **Reply Functionality**: Send replies directly from the inbox.
 
 ## **Project Structure**
 

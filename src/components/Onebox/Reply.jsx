@@ -61,24 +61,29 @@ const Reply = () => {
   };
 
   const placeholder = "{FIRST_NAME}";
+
+  const containerClass = theme === "dark" ? "bg-[#0b0b0b] text-white" : "bg-gray-100 text-black";
+  const borderClass = theme === "dark" ? "border-[#242424]" : "border-gray-300";
+  const textColor = theme === "dark" ? "text-white" : "text-black";
+
   return (
     <>
-      <div className="bg-gray-00 w-full h-[78vh] p-5 flex flex-col items-center">
-        <div className="w-full border-b-2 border-gray-500 mt-5 flex justify-center items-center"></div>
+      <div className={`w-full h-[78vh] p-5 flex flex-col items-center ${containerClass}`}>
+        <div className={`w-full border-b-2 ${borderClass} mt-5 flex justify-center items-center`}></div>
 
-        <div className="mt-4 h-[40%] w-[95%] border-2 border-[#242424] rounded-md bg-[#0b0b0b] p-3">
-          <p className="text-sm font-semibold">New Product Launch</p>
+        <div className={`mt-4 h-[40%] w-[95%] border-2 ${borderClass} rounded-md p-3`}>
+          <p className={`text-sm font-semibold ${textColor}`}>New Product Launch</p>
 
           <div className="flex flex-col gap-2 mt-3">
-            <p className="text-xs">
+            <p className={`text-xs ${textColor}`}>
               from: jeanne@icloud.com &nbsp;&nbsp;&nbsp;cc: lennon.j@mail.com
             </p>
-            <p className="text-xs">to: lennon.j@mail.com</p>
+            <p className={`text-xs ${textColor}`}>to: lennon.j@mail.com</p>
           </div>
 
           <div className="mt-8 text-sm max-w-[80%] flex flex-col gap-2">
-            <p>Hi {placeholder},</p>
-            <p>
+            <p className={textColor}>Hi {placeholder},</p>
+            <p className={textColor}>
               I would like to introduce you to SaaSgrow, a productized design
               service specifically tailored for SaaS startups. Our aim is to
               help you enhance the user experience and boost the visual appeal

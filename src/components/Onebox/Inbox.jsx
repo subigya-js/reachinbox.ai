@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { IoReload } from "react-icons/io5";
 import { useUserInfo } from "../../ContextAPI";
+import Reply from "./Reply";
 
 const Inbox = () => {
   const NA = `<span clasName="text-blue-400">N/A</span>`;
@@ -38,7 +39,7 @@ const Inbox = () => {
       const data = await response.json();
       setEmailList(data.data || []);
       setEmailCount(data.data.length);
-      console.log("Email List Data:", data.data);
+      // console.log("Email List Data:", data.data);
     } catch (error) {
       console.error("Error fetching email list:", error);
     } finally {
@@ -65,9 +66,9 @@ const Inbox = () => {
       }
 
       const data = await response.json();
-      console.log("Selected Email Data:", data);
+      // console.log("Selected Email Data:", data);
       setSelectedEmail(data);
-      console.log("Thread ID:", data.data[0]?.threadId);
+      // console.log("Thread ID:", data.data[0]?.threadId);
     } catch (error) {
       console.error("Error fetching email thread:", error);
     }
@@ -105,6 +106,7 @@ const Inbox = () => {
           isLightMode ? "bg-white text-black" : "bg-black text-white"
         } flex`}
       >
+        {/* Email List  */}
         <div
           className={`w-[25%] ${
             isLightMode
@@ -170,7 +172,9 @@ const Inbox = () => {
               <p>
                 <span
                   className={`py-1 px-2 rounded-lg ${
-                    isLightMode ? "text-blue-600 bg-gray-200" : "text-white bg-gray-600"
+                    isLightMode
+                      ? "text-blue-600 bg-gray-200"
+                      : "text-white bg-gray-600"
                   }`}
                 >
                   {filteredEmails.length}
@@ -227,7 +231,6 @@ const Inbox = () => {
             </div>
           </div>
 
-          {/* Email List */}
           <div className={`mt-3 ${isLightMode ? "text-black" : "text-white"}`}>
             <ul className="flex flex-col gap-5">
               {isLoading ? (
@@ -307,7 +310,6 @@ const Inbox = () => {
         >
           {selectedEmail && selectedEmail.data ? (
             <div>
-              {/* Header  */}
               <div
                 className={`h-[10vh] border-b-2 border-gray-500 py-2 px-4 bg-green-00 flex flex-col justify-center gap-1`}
               >
@@ -320,6 +322,8 @@ const Inbox = () => {
                 </p>
                 <p className="text-sm">{selectedEmail.data[0]?.fromEmail}</p>
               </div>
+
+              <Reply />
             </div>
           ) : (
             <div className="flex justify-center items-center h-full">
@@ -330,60 +334,75 @@ const Inbox = () => {
 
         {/* Right Section */}
         <div
-  className={`w-[25%] flex flex-col gap-5 ${
-    isLightMode ? "bg-white text-black" : "bg-black text-white"
-  }`}
->
-  <div className="flex justify-center w-full">
-    <div
-      className={`p-3 mt-8 w-[80%] rounded-md ${
-        isLightMode ? "bg-gray-200" : "bg-gray-600"
-      }`}
-    >
-      <p className={`${isLightMode ? "text-gray-800" : "text-gray-100"}`}>
-        Lead Details
-      </p>
-    </div>
-  </div>
+          className={`w-[25%] flex flex-col gap-5 ${
+            isLightMode ? "bg-white text-black" : "bg-black text-white"
+          }`}
+        >
+          <div className="flex justify-center w-full">
+            <div
+              className={`p-3 mt-8 w-[80%] rounded-md ${
+                isLightMode ? "bg-gray-200" : "bg-gray-600"
+              }`}
+            >
+              <p
+                className={`${isLightMode ? "text-gray-800" : "text-gray-100"}`}
+              >
+                Lead Details
+              </p>
+            </div>
+          </div>
 
-  {selectedEmail && selectedEmail.data ? (
-    <div
-      className={`p-4`}
-    >
-      <div className="flex justify-between">
-        <div className={`text-sm flex flex-col gap-2 ${isLightMode ? "text-gray-800" : "text-gray-200"}`}>
-          <p>Name</p>
-          <p>Contact No</p>
-          <p>Email ID</p>
-          <p>LinkedIn</p>
-          <p>Company Name</p>
+          {selectedEmail && selectedEmail.data ? (
+            <div className={`p-4`}>
+              <div className="flex justify-between">
+                <div
+                  className={`text-sm flex flex-col gap-2 ${
+                    isLightMode ? "text-gray-800" : "text-gray-200"
+                  }`}
+                >
+                  <p>Name</p>
+                  <p>Contact No</p>
+                  <p>Email ID</p>
+                  <p>LinkedIn</p>
+                  <p>Company Name</p>
+                </div>
+                <div
+                  className={`text-sm flex flex-col gap-2 ${
+                    isLightMode ? "text-gray-800" : "text-gray-200"
+                  }`}
+                >
+                  <p>
+                    {selectedEmail.data[0].fromName
+                      ? selectedEmail.data[0].fromName
+                      : NA}
+                  </p>
+                  <p>
+                    {selectedEmail.data[0].fromContact
+                      ? selectedEmail.data[0].fromContact
+                      : "N/A"}
+                  </p>
+                  <p>{selectedEmail.data[0].fromEmail}</p>
+                  <p>
+                    {selectedEmail.data[0].fromLinedin
+                      ? selectedEmail.data[0].fromLinedin
+                      : "N/A"}
+                  </p>
+                  <p>
+                    {selectedEmail.data[0].fromCompany
+                      ? selectedEmail.data[0].fromCompany
+                      : "N/A"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="flex justify-center items-center h-full">
+              <p className="text-center">
+                Select an email to view Lead details
+              </p>
+            </div>
+          )}
         </div>
-        <div className={`text-sm flex flex-col gap-2 ${isLightMode ? "text-gray-800" : "text-gray-200"}`}>
-          <p>
-            {selectedEmail.data[0].fromName ? selectedEmail.data[0].fromName : NA}
-          </p>
-          <p>
-            {selectedEmail.data[0].fromContact ? selectedEmail.data[0].fromContact : "N/A"}
-          </p>
-          <p>{selectedEmail.data[0].fromEmail}</p>
-          <p>
-            {selectedEmail.data[0].fromLinedin ? selectedEmail.data[0].fromLinedin : "N/A"}
-          </p>
-          <p>
-            {selectedEmail.data[0].fromCompany ? selectedEmail.data[0].fromCompany : "N/A"}
-          </p>
-        </div>
-      </div>
-    </div>
-  ) : (
-    <div className="flex justify-center items-center h-full">
-      <p className="text-center">
-        Select an email to view Lead details
-      </p>
-    </div>
-  )}
-</div>
-
       </div>
     </>
   );
